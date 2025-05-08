@@ -1,0 +1,951 @@
+section#copyright p {
+    color: white ;
+    
+}
+
+/* for laptop */
+
+@media (max-width: 1200px) {
+    #about h2, #process h2, #case-studies h2, #testimonial-section h2, #blogs h2, section#newsletter h2 {
+   
+    font-size: 42px;
+   
+}
+    
+    #blogs .meta-list {
+  
+    flex-wrap: wrap;
+    row-gap : 10px;
+}
+
+
+    .blog h2 {
+    font-size: 20px !important;
+  
+}
+
+    .hero-text h1 {
+    font-size: 54px;
+ 
+  
+}
+
+    section#about::after {
+    width: 200px;
+    height: 160px;
+   
+}
+
+section.hero-section .swiper {
+    padding: 70px 0 !important;
+}
+
+section#about {
+
+    padding: 70px 0;
+
+}
+
+
+#about .col-md-6:nth-child(2) {
+    padding-left: 30px;
+}    
+
+.counter-container {
+
+    padding: 60px 20px;
+   
+}
+
+
+#lawyers .swiper-button-prev {
+   
+    width: 48px;
+    height: 48px;
+    top: 37%;
+    left: -25px;
+  
+}
+
+section#testimonial-section {
+    padding-bottom: 70px;
+   
+}
+
+
+section.find-lawyer-banner h2 {
+    
+    font-size: 45px;
+    line-height: 60px;
+   
+}
+
+.contact-details a {
+
+    font-size: 12px;
+}
+
+
+.find-lawyer-banner {
+    min-height: 600px;
+    margin-bottom: 80px;
+}
+
+
+section.expertise {
+  
+    margin: 80px 0;
+   
+}
+
+
+
+/* login page */
+
+.login-box {
+    margin: 0 50px;
+  
+}
+
+
+.preview-card {
+  
+    gap: 0px;
+    flex-wrap: wrap;
+}
+
+
+
+    
+}
+
+
+
+/* for tablet */
+
+@media (max-width: 991px) {
+    
+   img.user-img {
+
+    margin-bottom: 20px;
+} 
+
+
+ul.profile-btns{
+    text-align: left !important;
+    margin-top: 20px;
+}
+
+body.profile h2 {
+  
+    font-size: 40px;
+    line-height: 44px;
+    
+}
+
+
+section.profile-section-3 .row {
+    margin-bottom: 50px;
+}
+
+    section.profile-banner {
+        margin-top: 24px;
+    }
+
+
+section.bio {
+    margin: 60px 0;
+}
+
+img.building-img {
+    width : 30px !important;
+}
+
+
+ul.navbar-nav {
+    gap: 5px;
+}
+
+button.navbar-toggler {
+         border: 2px solid #E0E0E0;
+        box-shadow: none !important;
+        padding: 10px 11px;
+        border-radius: 100px;
+
+   
+}
+
+
+span.navbar-toggler-icon {
+    background-image : url("/images/Icon (1).png")  !important;
+    background-size: 24px;
+}
+
+
+i.user-icon{
+    font-size : 24px;
+    margin-left: 10px;
+}
+
+a.navbar-brand {
+    width: 180px;
+}
+
+a.navbar-brand img {
+    width: 100%;
+}
+
+.contact-details {
+    display: none;
+}
+
+.icon-list {
+    
+    display: flex;
+    justify-content: center;
+}
+
+    
+}
+
+
+
+
+
+
+/* for mobile screens */
+
+@media(max-width : 767px){
+    
+    
+    section#about {
+        padding: 50px 0;
+        padding-bottom: 100px;
+        margin-top: 50px;
+    }
+
+
+#about .col-md-6:nth-child(2) {
+    padding-left: 10px;
+    padding-top: 40px;
+}
+    
+    
+    section#about::after {
+
+    width: 130px;
+    height: 100px;
+ 
+}
+    
+    
+    
+    
+#about h2, #process h2, #case-studies h2, #testimonial-section h2, #blogs h2, section#newsletter h2 {
+  
+    font-size: 32px;
+ 
+}    
+    
+    
+.counter-container {
+
+
+    flex-wrap: wrap;
+
+}    
+    
+    
+.counter-item {
+
+    width: 50%;
+    margin-bottom: 30px;
+}    
+
+
+.counter-container {
+
+    padding: 60px 20px;
+    padding-bottom: 30px;
+    justify-content: space-between;
+ 
+}
+
+
+section#process:after {
+ 
+    bottom: unset;
+    top: 50px;
+ 
+    width: 100%;
+    height: 320px;
+    
+    border-radius: 0;
+}
+
+.process-content {
+    padding-top: 240px;
+}
+
+
+#process img.play-icon {
+
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 70px;
+}
+
+
+section#process {
+
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+    
+    
+section#case-studies {
+    padding: 50px 10px;
+}    
+    
+    
+
+.row.r1,
+.row.r2{
+    display : grid;
+    grid-template-columns : 1fr 1fr;
+}
+
+.gallery-img {
+    width: 100% !important;
+}
+
+
+section#testimonial-section {
+    padding-bottom: 50px;
+    padding-top: 30px;
+}
+
+.faq-box {
+ 
+    padding: 30px 50px;
+  
+    width: 90%;
+ 
+}
+
+
+.faq-box h4 {
+  
+    margin-top: 10px;
+ 
+    text-align: center;
+}
+
+
+#blogs .meta-list {
+
+    flex-wrap: wrap;
+    row-gap: 10px;
+
+   
+}
+
+
+#blogs .swiper.blog-swiper {
+
+    padding-bottom: 60px;
+     margin-top: 20px;
+}
+
+section#blogs {
+    padding: 50px 0;
+    margin-top: 60px;
+  
+}
+  
+  
+ section#blogs::after,
+  section#blogs::before{
+   display: none;
+} 
+  
+  
+  section#newsletter:before {
+    
+    width: 100%;
+ 
+}
+
+#newsletter h2 {
+    font-size: 34px !important;
+    margin-bottom: 20px;
+}
+
+section#faqs {
+ 
+    padding: 50px 0;
+}
+
+#footer .left-col {
+    display: flex;
+    margin: 30px 0;
+    flex-direction: column;
+    align-items: start;
+}
+  
+ 
+#footer .center-col {
+    text-align: start;
+    flex-flow: column;
+    align-items: start;
+    
+    order: -1;
+}  
+ 
+ 
+#footer p {
+  
+    text-align: left;
+    width: 100%;
+  
+} 
+
+section#footer {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  
+   
+}
+
+
+#lawyers a.btn1 {
+    position: unset;
+    top: unset;
+    width: max-content;
+    display: block;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+
+    #lawyers .swiper-slide a.btn1 {
+      
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+    }
+    
+    #lawyers .swiper-wrapper {
+    padding-bottom: 0;
+  
+}
+
+#lawyers h2 {
+
+    font-size: 40px;
+ 
+}
+
+
+
+
+
+
+#lawyers .swiper-button-prev {
+ 
+    width: 45px;
+    height: 45px;
+    top: 37%;
+    left: -12px;
+
+}
+
+
+
+#lawyers  .swiper-button-next {
+   display: flex !important;
+   background-color: white;
+   border-radius: 50%;
+   width: 45px;
+   height: 45px;
+   top: 38%;
+   right: -13px;
+   z-index: 99;
+}
+
+#lawyers .swiper-button-next:after {
+    font-size: 22px;
+    font-weight: bolder;
+    color: grey;
+    filter: brightness(0);
+    transition: .5s all ease;
+}
+
+#lawyers .swiper-button-next:hover:after {
+    filter: brightness(0) invert(1);
+    transition: .5s all ease;
+}
+
+
+
+.row.fuild {
+    position: absolute;
+    width: 97%;
+    top: 0px;
+}
+
+
+section.hero-section .swiper-slide {
+
+    padding: 0px;
+    padding-top: 62%;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+  
+}
+
+.review.d-flex.align-items-center.mt-3 {
+    flex-direction: column;
+    align-items: start !important;
+    gap: 10px;
+    margin-top : 30px !important;
+}
+
+
+
+
+section.hero-section .swiper {
+        padding-bottom: 50px !important;
+}
+
+.search-bar {
+
+    width: 100%;
+   
+}
+
+.search-bar button {
+
+    padding: 15px 10px;
+
+}
+
+
+
+/* LAWYER PAGE */
+
+
+section.find-lawyer-banner h2 {
+  
+     
+        font-size: 30px;
+        line-height: 40px;
+        max-width: 470px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+  
+   
+}
+
+
+section.find-lawyer-banner a {
+  
+    max-width: 400px;
+   
+}
+
+
+.find-lawyer-banner {
+  
+    padding: 80px 0;
+    min-height: auto;
+    margin-bottom: 50px;
+
+}
+
+.find-lawyer-banner .btn1 {
+ 
+    padding: 15px 0;
+  
+    font-size: 14px;
+}
+
+section.expertise h2 {
+    font-size: 34px;
+    line-height: 44px;
+    margin: 15px 0;
+   
+}
+
+
+section.expertise::after {
+
+    width: 130px;
+    height: 100px;
+   
+}
+
+section.expertise {
+
+    margin: 50px 0;
+    padding-bottom: 140px;
+}
+
+section.sign-up h2 {
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom: 16px;
+}
+
+section.sign-up .row img {
+    position: relative;
+    width: 100% !important;
+    bottom: 0;
+    right: 0;
+    margin-top : 40px;
+}
+
+section.sign-up .row {
+  
+    padding: 0 10px;
+    padding-top: 50px;
+    border-radius: 0;
+    margin-bottom: 50px;
+
+  
+}
+    
+section.sign-up .row .content-col {
+    padding-right: 0 !important;
+}    
+    
+    
+    /* profile page */
+    
+    section.profile-banner {
+    margin-top: 15px;
+}
+
+
+body.profile h2 {
+   
+    font-size: 36px;
+    line-height: 44px;
+  
+}  
+
+
+
+button.profile-btn {
+  
+    min-width: 230px;
+}
+
+
+.badge-images img {
+    width : 40px;
+}
+
+.text-icon h2 {
+    font-size : 26px !important;
+    line-height : 34px !important;
+}
+
+.text-icon{
+    
+    gap: 10px !important;
+}
+
+
+section.profile-section-3 .row {
+    margin-bottom: 50px;
+}
+
+section.bio {
+    margin: 50px 0;
+}
+
+
+   .login-box {
+        margin: 0 0;
+    }
+
+
+a.login-logo {
+    position : unset;
+}
+
+a.login-logo img{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius : 0 0 70px;
+    margin-bottom : 50px;    
+    width: 250px;
+}
+
+.login-box h4 {
+    font-size: 24px;
+    line-height: 34px;
+   
+}
+
+
+.register .row{
+    flex-direction : column !important;
+    margin : 0 !important;
+}
+
+.register,
+.register .col{
+    padding : 0;
+}
+
+.register {
+ 
+    margin-top: 0;
+}
+
+.register .input-group{
+    margin-bottom : 20px !important;
+}
+
+.register h2 {
+    font-size: 24px;
+
+}
+
+.register .form-check {
+    width: 100%;
+
+}
+
+.register .form-check label {
+    font-size : 14px;
+  
+}
+
+.register button {
+   
+   
+  
+    width: 100% !important;
+     margin-left: 0; 
+}
+
+
+a.forgot-link {
+   
+    font-size: 13px;
+}
+
+.login-box button[type="submit"] {
+   
+    margin-bottom: 24px !important;
+   
+}
+
+.payment-container {
+    padding: 0;
+    margin-top: 0;
+}
+
+.payment .wrapper .inner-wrapper {
+    padding: 30px 20px 0px 20px;
+    margin-top: 40px;
+}
+
+
+.payment .wrapper button {
+
+    padding: 16px 14px;
+    border-radius: 0px;
+   
+    font-size: 13px;
+}
+
+
+.payment h4 {
+ 
+    font-size: 24px;
+
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.payment-methods img {
+    width: 60px;
+ 
+    height: 45px;
+   
+}
+
+.payment-methods {
+    gap: 8px;
+    margin-top: 15px;
+  
+}
+
+.payment label.form-check-label {
+ 
+    font-size: 13px;
+}
+
+.payment button.btn.submit-btn {
+    background-color: #47c047;
+    width: 100% !important;
+    padding: 18px;
+    color: white;
+    margin-left: 0;
+}
+
+
+#ad .preview-section {
+    padding-left: 10px;
+}
+
+
+.preview-card {
+    display: flex
+;
+    gap: 20px;
+    align-items: start;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+*
+
+#ad .form-section {
+    padding-right: 10px;
+}
+
+#ad .row.location {
+ 
+    padding: 20px;
+
+}
+
+#ad .row.duration {
+
+    padding: 20px;
+
+ 
+}
+
+.view-profle button {  
+    padding: 10px;
+  
+}
+
+#ad input.form-control {
+    height: 38px;
+}
+
+section#ad h2, #ad h4 {
+    font-size: 24px;
+  
+    
+}
+
+.preview-card div{
+    width : 100%;
+}
+
+.preview-card div img{
+    width : 100%;
+}
+
+#ad button.btn.btn-publish {
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 0;
+}
+
+.card-body.p-5 {
+    padding : 30px !important;
+}
+
+    
+}
+
+
+@media(max-width : 570px){
+    
+        .counter-item {
+        width: 100%;
+    }
+    
+    .row.r1,
+    .row.r2{
+    display : grid;
+    grid-template-columns : 1fr;
+}
+
+
+#testimonial-section .inner {
+    padding: 20px ;
+    padding-top : 60px;
+
+}
+
+#testimonial-section span.quote-icon {
+   
+    width: 70px;
+
+    height: 70px;
+}
+
+#testimonial-section .swiper.test-swiper {
+  
+    padding-bottom: 70px;
+}
+
+
+#testimonial-section .swiper-button-prev, .blog-button-prev.swiper-button-prev {
+    left: unset !important;
+    right: 80px;
+    top: unset !important;
+    bottom: 0;
+}
+
+#testimonial-section .swiper-button-next, .blog-button-next.swiper-button-next {
+    right: 20px !important;
+    top: unset !important;
+    bottom: 0;
+}
+
+.faq-box {
+ 
+    padding: 30px 20px;
+  
+    width: 90%;
+ 
+}
+
+#newsletter input.btn1 {
+    margin-top : 20px;
+    position: relative;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 100%;
+}
+
+.counter-item {
+   
+    align-items: center;
+    justify-content: center;
+      gap: 20px;
+    flex-direction: column;
+}
+
+.counter-number {
+  
+     text-align: center; 
+     margin-bottom: 10px;
+}
+
+
+}
