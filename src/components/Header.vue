@@ -99,9 +99,18 @@ const logout = async () => {
       </li>
     </ul>
   </div>
-  <div v-if="user" class="d-flex align-items-center">
-    <span class="me-3">Hello, {{ user.first_name }}</span>
-    <button @click="logout" class="btn btn-danger">Logout</button>
+  <div v-if="user" class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      Hello, {{ user.first_name }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+      <li>
+        <router-link class="dropdown-item" to="/update-profile">My Account</router-link>
+      </li>
+      <li>
+        <button class="dropdown-item" @click="logout">Logout</button>
+      </li>
+    </ul>
   </div>
   <router-link v-else to="/create-account" class="btn1 d-none d-lg-block"><span>Create account</span></router-link>
   
