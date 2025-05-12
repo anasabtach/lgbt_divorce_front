@@ -85,9 +85,9 @@ const logout = async () => {
       <li class="nav-item">
         <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
       </li>
-      <!-- <li class="nav-item">
-        <router-link class="nav-link" to="/profile">FOR Lawyers</router-link>
-      </li> -->
+      <li class="nav-item">
+        <router-link class="nav-link" to="/for-lawyers">FOR Lawyers</router-link>
+      </li>
             <li class="nav-item">
         <router-link class="nav-link" to="/about">ABout</router-link>
       </li>

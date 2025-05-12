@@ -19,7 +19,7 @@
                         <li><i class="fa-solid fa-circle-check"></i> Road Test Preparation with 98% success</li>
                         <li><i class="fa-solid fa-circle-check"></i> Meeting clients' needs is our priority.</li>
                     </ul>
-                    <router-link to="/about" class="btn1"><span>More About</span><i class="fa-solid fa-arrow-right"></i></router-link>
+                    <!-- <router-link to="/about" class="btn1"><span>More About</span><i class="fa-solid fa-arrow-right"></i></router-link> -->
                 </div>
             </div>
         </div>

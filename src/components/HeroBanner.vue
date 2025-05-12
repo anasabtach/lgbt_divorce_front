@@ -45,9 +45,9 @@
                         type="text" 
                         class="form-control me-2 bordered" 
                         v-model="country" 
-                        placeholder="United States" 
-                        value="United States"
-                        aria-label="Country"   
+                        placeholder="Country" 
+                        aria-label="Country"                        
+                        required 
                     />
                     <button 
                     type="submit" 

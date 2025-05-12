@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
+import ForLawyers from '@/views/ForLawyers.vue'
 import Faq from '@/views/Faq.vue'
 import Profile from '@/views/Profile.vue'
 import CreateAccount from '@/views/CreateAccount.vue'
@@ -18,6 +19,7 @@ import MyAds from '@/views/MyAds.vue'
 const routes = [
   { path: '/', component: Home },  // Use 'component' instead of 'view'
   { path: '/about', component: About },
+  { path: '/for-lawyers', component: ForLawyers },
   { path: '/faq', component: Faq },
   { path: '/profile', component: Profile },
   { path: '/create-account', component: CreateAccount, meta: { hideLayout: true } },

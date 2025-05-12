@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 import LawyersSlider from '../components/LawyersSlider.vue'
 </script>
 
@@ -15,6 +15,7 @@ import LawyersSlider from '../components/LawyersSlider.vue'
                     </h2>
                     <router-link to="/login" class="btn1"><span>Sign Up Today & Expand Your Reach!</span></router-link>
 
+                    <!-- Scroll link image -->
                     <a href="#lawyers">
                         <img src="@/assets/images/Link.png" alt="Scroll to Lawyers" class="bottom-arrow">
                     </a>
@@ -73,37 +74,4 @@ import LawyersSlider from '../components/LawyersSlider.vue'
         </div>
     </section>
 </template>
- -->
 
- 
-
-
-<template>
-    <!-- <HeroBanner/> -->
-        <section class="find-lawyer-banner">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col text-center">
-                    <h2>
-                        About Us
-                    </h2>
-                    <!-- <router-link to="/login" class="btn1"><span>Sign Up Today & Expand Your Reach!</span></router-link> -->
-
-                    <!-- Scroll link image -->
-                    <a href="#lawyers">
-                        <img src="@/assets/images/Link.png" alt="Scroll to Lawyers" class="bottom-arrow">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <About/>
-
-
-</template>
-
-
-<script setup>
-
-import About from '../components/About.vue'
-</script>
