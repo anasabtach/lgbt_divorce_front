@@ -88,7 +88,7 @@ onMounted(async () => {
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <!-- <h4>Our Attorneys</h4> -->
+                     <h4>Some of recent ads</h4> 
                     <h2>Featured Ads</h2>
                     <!-- <router-link to="/#hero" class="btn1">
                         <span>Find a Lawyer</span><i class="fa-solid fa-arrow-right"></i>
@@ -99,7 +99,7 @@ onMounted(async () => {
                         <div class="swiper-wrapper">
                             <div v-for="lawyer in lawyers" :key="lawyer.id" class="swiper-slide">
                                 <div class="box">
-                                    <img src="@/assets/images/image28.png" :alt="lawyer.name" />
+                                    <img src="@/assets/images/ad-placeholder.webp" :alt="lawyer.name" />
                                     <h3>{{ lawyer.title }}</h3>
                                     <p>{{ lawyer.content }}</p>
                                 </div>

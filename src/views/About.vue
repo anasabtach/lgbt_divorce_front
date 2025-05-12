@@ -47,7 +47,6 @@ import LawyersSlider from '../components/LawyersSlider.vue'
                         versions of Lorem Ipsum.
 
                     </p>
-                    <a href="" class="btn1"><span>More About</span><i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -66,7 +65,7 @@ import LawyersSlider from '../components/LawyersSlider.vue'
                         Lawyer like you, in their own geographical area.
 
                     </p>
-                    <a href="" class="btn1"><span>Sign Up as a Lawyer</span></a>
+                      <router-link class="btn1 d-none d-lg-block" to="/create-account">Sign Up as a Lawyer</router-link>
                 </div>
                 <div class="col-lg-5">
                     <img src="@/assets/images/man.png" alt="Lawyer Illustration" class="w-100">

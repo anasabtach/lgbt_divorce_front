@@ -106,8 +106,9 @@ const logout = async () => {
     </button>
     <ul class="dropdown-menu" aria-labelledby="userDropdown">
       <li>
-        <router-link class="dropdown-item" to="/update-profile">My Account</router-link>
-        <router-link class="dropdown-item" to="/profile">Profile</router-link>
+      <router-link class="dropdown-item" to="/profile">My Account</router-link>
+        <router-link class="dropdown-item" to="/update-profile">Edit Profile</router-link>
+        
         <router-link class="dropdown-item" to="/create-your-ad">Create Ad</router-link>
       </li>
       <li>
@@ -115,7 +116,7 @@ const logout = async () => {
       </li>
     </ul>
   </div>
-  <router-link v-else to="/login" class="btn1 d-none d-lg-block"><span>Login-Register</span></router-link>
+  <router-link v-else to="/login" class="btn1 d-none d-lg-block"><span>Login/Register</span></router-link>
   
 
 </nav>
