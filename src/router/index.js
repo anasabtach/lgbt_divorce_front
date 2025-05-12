@@ -13,6 +13,7 @@ import ForgetPassword from '@/views/ForgetPassword.vue'
 import UpdateProfile from '@/views/UpdateProfile.vue'
 import BlogInner from '@/views/BlogInner.vue'
 import Map from '../components/Map.vue'
+import MyAds from '@/views/MyAds.vue'
 
 const routes = [
   { path: '/', component: Home },  // Use 'component' instead of 'view'
@@ -24,6 +25,7 @@ const routes = [
   { path: '/contact-us', component: ContactUs, meta: { hideLayout: true } },
   { path: '/payment', component: Payment, meta: { hideLayout: true } },
   { path: '/create-your-ad', component: CreateYourAd, meta: { hideLayout: true } },
+  { path: '/my-ads', component: MyAds },
   { path: '/dashboard', component: Dashboard, meta: { hideLayout: true } },
   { path: '/reset-password', component: ForgetPassword, meta: { hideLayout: true } },
   { path: '/blog/:id', name: 'BlogInner', component: BlogInner },

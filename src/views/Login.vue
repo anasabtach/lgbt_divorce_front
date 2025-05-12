@@ -30,7 +30,7 @@ const submitLogin = async () => {
       localStorage.setItem('token', token)
       localStorage.setItem('user', JSON.stringify(user))
       Swal.fire('Success', 'Logged in successfully!', 'success').then(() => {
-        router.push('/') // Redirect to home page
+        router.push('/profile') // Redirect to home page
       })
     } else {
       Swal.fire('Error', response.data.message || 'Login failed.', 'error')
@@ -78,8 +78,8 @@ const submitLogin = async () => {
 
               <button type="submit" class="btn btn-danger w-100 mb-3 py-2">Sign In</button>
 
-              <p class="text-center">Or sign in with</p>
-
+              <!-- <p class="text-center">Or sign in with</p> -->
+<!-- 
               <div class="social-links-wrap mb-3">
                 <button type="button" class="social-btn me-2">
                   <img
@@ -97,7 +97,7 @@ const submitLogin = async () => {
                   />
                   Facebook
                 </button>
-              </div>
+              </div> -->
 
               <p class="text-center no-acc">
                 Don’t have an account? <router-link to="/create-account">Sign Up</router-link>

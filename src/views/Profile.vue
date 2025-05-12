@@ -1,26 +1,47 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import LawyersSlider from '../components/LawyersSlider.vue';
 
+const baseURL = import.meta.env.VITE_API_BASE_URL;
+const token = localStorage.getItem('token');
+const lawyers = ref([]);
 
+onMounted(async () => {
+  try {
+    const response = await axios.get(`${baseURL}/ad`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    console.log(response.data.advertisements);
+    lawyers.value = response.data.advertisements;
+  } catch (error) {
+    console.error('Error fetching lawyers:', error);
+  }
+});
+</script>
 <template>
     <section class="profile-banner">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img src="@/assets/images/profile.png" alt="" class="user-img w-100" />
+                    <img src="https://microbiology.ucr.edu/sites/default/files/styles/form_preview/public/blank-profile-pic.png?itok=4teBBoet" alt="" class="user-img w-100" />
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h2 class="user-name">Sarah Rehman</h2>
+                            <h2 class="user-name">{{ user?.first_name || 'User Name' }}</h2>
                             <ul class="info-list">
-                                <li><span><img src="@/assets/images/info-1.png" alt="" /></span> 15 + years of experience</li>
-                                <li><span><img src="@/assets/images/info-2.png" alt="" /></span> LGBT Divorce</li>
-                                <li><span><img src="@/assets/images/info-3.png" alt="" /></span> Texas</li>
+                                <li><span><img src="@/assets/images/info-1.png" alt="" /></span> {{ user?.experience || '10' }} years of experience</li>
+                                <li><span><img src="@/assets/images/info-2.png" alt="" /></span> {{ user?.specialization || 'Specialization' }}</li>
+                                <li><span><img src="@/assets/images/info-3.png" alt="" /></span> {{ user?.city_town || 'Location' }}</li>
                             </ul>
                             <button class="profile-btn">Review This Lawyer</button>
                         </div>
                         <div class="col-lg-6">
                             <ul class="profile-btns text-end">
-                                <li><button class="profile-btn"><i class="fas fa-phone"></i>(713) 766-5355</button></li>
+                                <li><button class="profile-btn"><i class="fas fa-phone"></i>{{ user?.mobile_phone || '(N/A)' }}</button></li>
                                 <li><button class="profile-btn"><i class="far fa-envelope"></i>Email Lawyer</button>
                                 </li>
                                 <li><button class="profile-btn"><i class="fas fa-globe"></i>View Website</button></li>
@@ -63,7 +84,38 @@
             </div>
         </div>
     </section>
-
+     <section id="lawyers"  v-show="lawyers.length > 0"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- <h4>Our Attorneys</h4> -->
+                    <h2>Featured Ads</h2>
+                    <!-- <router-link to="/#hero" class="btn1">
+                        <span>Find a Lawyer</span><i class="fa-solid fa-arrow-right"></i>
+                    </router-link> -->
+                </div>
+                <div class="col-md-9">
+                    <div class="swiper-second">
+                        <div class="swiper-wrapper">
+                            <div v-for="lawyer in lawyers" :key="lawyer.id" class="swiper-slide">
+                                <div class="box">
+                                    <img src="@/assets/images/image28.png" :alt="lawyer.name" />
+                                    <h3>{{ lawyer.title }}</h3>
+                                    <p>{{ lawyer.content }}</p>
+                                </div>
+                                <!-- <router-link :to="`/profile/${lawyer.id}`" class="btn1">
+                                    <span>View profile</span>
+                                </router-link> -->
+                            </div>
+                        </div>
+                        <!-- Only arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Biography -->
     <section class="bio">
         <div class="container">
@@ -154,3 +206,22 @@
         </div>
     </section>
 </template>
+
+<script>
+import { initSliders } from '../assets/js/custom.js';
+
+export default {
+  data() {
+    return {
+      user: null
+    };
+  },
+  mounted() {
+            initSliders();        
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      this.user = JSON.parse(userData);
+    }
+  }
+};
+</script>

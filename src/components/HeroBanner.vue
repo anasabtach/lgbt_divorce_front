@@ -52,9 +52,14 @@
                     <button 
                     type="submit" 
                     class="btn btn-danger" 
-                    :disabled="isSubmitting || !zipCode || !country"
                     aria-label="Search Lawyers"
                     >
+                    <!-- <button 
+                    type="submit" 
+                    class="btn btn-danger" 
+                    :disabled="isSubmitting || !zipCode || !country"
+                    aria-label="Search Lawyers"
+                    > -->
                     <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                     </form>
@@ -77,7 +82,6 @@
   <script >
   import { initSliders } from '../assets/js/custom.js';
   import Map from '@/components/Map.vue';
-
   
   export default {
     components: {
@@ -98,6 +102,7 @@
     methods: {
       handleSubmit() {
         this.isSubmitting = true;
+        this.$router.push('/about'); // Use this.$router instead of router.push
         // Process the form submission (e.g., API call)
         // After the submission, reset the form or handle success
         this.isSubmitting = false;

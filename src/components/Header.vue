@@ -85,15 +85,16 @@ const logout = async () => {
       <li class="nav-item">
         <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <router-link class="nav-link" to="/profile">FOR Lawyers</router-link>
+      </li> -->
+            <li class="nav-item">
+        <router-link class="nav-link" to="/about">ABout</router-link>
       </li>
       <li class="nav-item">
         <router-link class="nav-link" to="/faq">FAQ</router-link>
       </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/about">ABout</router-link>
-      </li>
+
       <li class="nav-item">
         <router-link class="nav-link" to="/contact-us">Contact us</router-link>
       </li>
@@ -106,13 +107,15 @@ const logout = async () => {
     <ul class="dropdown-menu" aria-labelledby="userDropdown">
       <li>
         <router-link class="dropdown-item" to="/update-profile">My Account</router-link>
+        <router-link class="dropdown-item" to="/profile">Profile</router-link>
+        <router-link class="dropdown-item" to="/create-your-ad">Create Ad</router-link>
       </li>
       <li>
         <button class="dropdown-item" @click="logout">Logout</button>
       </li>
     </ul>
   </div>
-  <router-link v-else to="/create-account" class="btn1 d-none d-lg-block"><span>Create account</span></router-link>
+  <router-link v-else to="/login" class="btn1 d-none d-lg-block"><span>Login-Register</span></router-link>
   
 
 </nav>
