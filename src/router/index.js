@@ -9,6 +9,7 @@ import Login from '@/views/Login.vue'
 import ContactUs from '@/views/ContactUs.vue'
 import Payment from '@/views/Payment.vue'
 import CreateYourAd from '@/views/CreateYourAd.vue'
+import EditYourAd from '@/views/EditYourAd.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import ForgetPassword from '@/views/ForgetPassword.vue'
 import UpdateProfile from '@/views/UpdateProfile.vue'
@@ -27,6 +28,7 @@ const routes = [
   { path: '/contact-us', component: ContactUs, meta: { hideLayout: true } },
   { path: '/payment', component: Payment, meta: { hideLayout: true } },
   { path: '/create-your-ad', component: CreateYourAd, meta: { hideLayout: true } },
+  { path: '/edit-your-ad/:id', component: EditYourAd, meta: { hideLayout: true } },
   { path: '/my-ads', component: MyAds },
   { path: '/dashboard', component: Dashboard, meta: { hideLayout: true } },
   { path: '/reset-password', component: ForgetPassword, meta: { hideLayout: true } },
@@ -56,6 +58,10 @@ router.beforeEach((to, from, next) => {
   else if (!token && to.path === '/update-profile') {
     next('/login') // Redirect to login if not logged in and trying to access update-profile
   } 
+  // Restrict access to dashboard if not logged in
+  else if (!token && to.path === '/dashboard') {
+    next('/login') // Redirect to login if not logged in and trying to access dashboard
+  }
   // Allow access to other routes
   else {
     next() // Proceed to the route

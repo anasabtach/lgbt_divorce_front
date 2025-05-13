@@ -21,7 +21,9 @@ const form = reactive({
   mobilePhone: '',
   email: '',
   website: '',
-  agree: false
+  agree: false,
+  image: null, // Add image field
+  imagePreview: null // Add image preview field
 })
 
 const validateForm = () => {
@@ -68,27 +70,39 @@ const validateForm = () => {
   return true
 }
 
+const handleImageUpload = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    form.image = file;
+    form.imagePreview = URL.createObjectURL(file);
+  }
+}
+
 const submitForm = async () => {
   if (!validateForm()) return
 
   try {
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
-    const response = await axios.post(`${API_BASE_URL}/user/register`, {
-      first_name: form.firstName,
-      last_name: form.lastName,
-      username: form.username,
-      email: form.email,
-      password: form.password,
-      law_firm_name: form.lawFirm,
-      zip_code: form.zipCode,
-      city_town: form.city,
-      county: form.county,
-      address: form.address,
-      office_phone: form.officePhone,
-      mobile_phone: form.mobilePhone,
-      website_url: form.website,
-      terms_accepted: form.agree
-    })
+    const formData = new FormData();
+    formData.append('first_name', form.firstName);
+    formData.append('last_name', form.lastName);
+    formData.append('username', form.username);
+    formData.append('email', form.email);
+    formData.append('password', form.password);
+    formData.append('law_firm_name', form.lawFirm);
+    formData.append('zip_code', form.zipCode);
+    formData.append('city_town', form.city);
+    formData.append('county', form.county);
+    formData.append('address', form.address);
+    formData.append('office_phone', form.officePhone);
+    formData.append('mobile_phone', form.mobilePhone);
+    formData.append('website_url', form.website);
+    formData.append('terms_accepted', form.agree);
+    if (form.image) {
+      formData.append('image', form.image); // Add image to formData
+    }
+
+    const response = await axios.post(`${API_BASE_URL}/user/register`, formData);
     Swal.fire('Success', 'Account created successfully!', 'success').then(() => {
       router.push('/login') // Redirect to login page
     })
@@ -204,6 +218,15 @@ const submitForm = async () => {
               <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="fa fa-globe"></i></span>
                 <input v-model="form.website" type="url" class="form-control" placeholder="Website URL" />
+              </div>
+
+              <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fa fa-image"></i></span>
+                <input @change="handleImageUpload" type="file" class="form-control" accept="image/*" />
+              </div>
+
+              <div v-if="form.imagePreview" class="mb-3">
+                <img :src="form.imagePreview" alt="Image Preview" class="img-thumbnail" />
               </div>
 
               <div class="form-check mb-3">

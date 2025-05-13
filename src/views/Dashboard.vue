@@ -5,6 +5,8 @@ import { onMounted, ref, reactive, computed } from 'vue'
 const applicationsChart = ref(null)
   const profileViewsChart = ref(null)
   const calendarGrid = ref(null)
+  const user = ref(null)
+  
   
   // Date State
   const today = new Date()
@@ -66,6 +68,13 @@ const applicationsChart = ref(null)
   }
   
   onMounted(() => {
+      const userData = localStorage.getItem('user')
+      if (userData) {
+        user.value = JSON.parse(userData)
+      } else {
+        user.value = { first_name: 'Guest' } // Default value to avoid null reference
+      }
+      console.log(userData)
     // Doughnut Chart
     new Chart(applicationsChart.value, {
       type: 'doughnut',
@@ -175,7 +184,7 @@ const applicationsChart = ref(null)
           <div class="personal-info">
             <i class="fa-solid fa-pen-to-square  edit"></i>
             <img src="@/assets/images/avatar.png" class="avatar" alt="">
-            <h4 class="name">Lawyer Name</h4>
+              <h4 class="name">{{ user?.first_name }}</h4>
             <h5 class="designation">Law Degree (LGBT)</h5>
             <h6 class="case-add">Open to Case or Ad</h6>
           </div>

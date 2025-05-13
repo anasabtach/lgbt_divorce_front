@@ -99,10 +99,11 @@ onMounted(async () => {
                         <div class="swiper-wrapper">
                             <div v-for="lawyer in lawyers" :key="lawyer.id" class="swiper-slide">
                                 <div class="box">
-                                    <img src="@/assets/images/ad-placeholder.webp" :alt="lawyer.name" />
+                                    <img :src="lawyer.image_url" :alt="lawyer.name" />
                                     <h3>{{ lawyer.title }}</h3>
                                     <p>{{ lawyer.content }}</p>
                                 </div>
+                                <router-link :to="`/edit-your-ad/${lawyer.id}`" class="dropdown-item">Edit</router-link>
                                 <!-- <router-link :to="`/profile/${lawyer.id}`" class="btn1">
                                     <span>View profile</span>
                                 </router-link> -->
