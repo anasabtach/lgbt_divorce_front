@@ -78,6 +78,10 @@ const handleImageUpload = (event) => {
   }
 }
 
+const updatePassword = (event) => {
+  form.password = event.target.value;
+}
+
 const submitForm = async () => {
   if (!validateForm()) return
 
@@ -101,7 +105,7 @@ const submitForm = async () => {
     if (form.image) {
       formData.append('image', form.image); // Add image to formData
     }
-
+    console.log(formData);
     const response = await axios.post(`${API_BASE_URL}/user/register`, formData);
     Swal.fire('Success', 'Account created successfully!', 'success').then(() => {
       router.push('/login') // Redirect to login page
@@ -115,7 +119,7 @@ const submitForm = async () => {
 <template>
   <section class="login-banner">
     <router-link class="login-logo" to="/">
-      <img src="@/assets/images/login-logo.png" alt="Logo" />
+      <img src="@/assets/images/login-logo.png" alt="Logo" width="100px" height="100px"/>
     </router-link>
 
     <div class="container-fluid">
@@ -153,7 +157,7 @@ const submitForm = async () => {
                 <div class="col">
                   <div class="input-group">
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                    <input v-model="form.password" type="password" class="form-control" placeholder="Password" />
+                    <input v-model="form.password" @change="updatePassword" type="password" class="form-control" placeholder="Password" />
                   </div>
                 </div>
               </div>
