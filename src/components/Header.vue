@@ -105,6 +105,9 @@ const logout = async () => {
       Hello, {{ user.first_name }}
     </button>
     <ul class="dropdown-menu" aria-labelledby="userDropdown">
+            <li>
+          <router-link class="dropdown-item" to="/dashboard">Dashboard</router-link>
+      </li>
       <li>
       <router-link class="dropdown-item" to="/profile">My Account</router-link>
         <router-link class="dropdown-item" to="/update-profile">Edit Profile</router-link>

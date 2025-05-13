@@ -70,7 +70,7 @@
                                 <p><strong>Start Date:</strong> {{ formData.start_date }}</p>
                                 <p><strong>Days:</strong> {{ formData.days }}</p>
                                 <p><strong>Run Until:</strong> {{ formData.run_until }}</p>
-                                <div v-if="formData.imagePreview">
+                                <div>
                                     <p><strong>Uploaded Image:</strong></p>
                                     <img :src="formData.imagePreview" alt="Uploaded Image" class="img-fluid" />
                                 </div>
@@ -122,6 +122,37 @@ export default {
     if (user && user.id) {
       this.formData.user_id = user.id;
     }
+
+    const adId = this.$route.params.id; // Get the ID from the URL
+    const token = localStorage.getItem('token');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+
+    axios.get(`${baseURL}/ad/edit/${adId}`, { headers })
+      .then(response => {
+        if (response.status === 200) {
+          const adData = response.data.advertisement;
+          this.formData = {
+            ...this.formData,
+            title: adData.title,
+            law_firm_desc: adData.law_firm_desc,
+            content: adData.content,
+            start_date: adData.start_date.split('T')[0], // Convert datetime to date
+            days: adData.days,
+            run_until: adData.run_until.split('T')[0], // Convert datetime to date
+            city: adData.city,
+            location_latitude: adData.latitude,
+            location_longitude: adData.longitude,
+            radius: adData.radius,
+            imagePreview: adData.image_url // Assuming the API returns an image URL
+          };
+        }
+      })
+      .catch(error => {
+        Swal.fire('Error', 'Failed to fetch advertisement data.', 'error');
+        console.error(error);
+      });
   },
   methods: {
     handleImageUpload(event) {
@@ -153,6 +184,7 @@ export default {
     async submitForm() {
       if (!this.validateForm()) return;
 
+      const adId = this.$route.params.id; // Get the ID from the URL
       const token = localStorage.getItem('token');
       const headers = {
         Authorization: `Bearer ${token}`
@@ -164,21 +196,19 @@ export default {
           formData.append('location[latitude]', this.formData[key]);
         } else if (key === 'location_longitude') {
           formData.append('location[longitude]', this.formData[key]);
-        } else if (key === 'image') {
-          formData.append('image', this.formData[key]);
         } else if (key !== 'imagePreview') {
           formData.append(key, this.formData[key]);
         }
       }
 
       try {
-        const response = await axios.post(`${baseURL}/ad/store`, formData, { headers });
+        const response = await axios.put(`${baseURL}/ad/update/${adId}`, formData, { headers });
         if (response.status === 200) {
-          Swal.fire('Success', 'Ad submitted successfully!', 'success');
+          Swal.fire('Success', 'Ad updated successfully!', 'success');
         }
       } catch (error) {
-        console.log(this.formData);
-        Swal.fire('Error', 'There was an error submitting the ad.', 'error');
+        Swal.fire('Error', 'There was an error updating the ad.', 'error');
+        console.error(error);
       }
     }
   }
