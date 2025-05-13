@@ -9,8 +9,13 @@ import Login from '@/views/Login.vue'
 import ContactUs from '@/views/ContactUs.vue'
 import Payment from '@/views/Payment.vue'
 import CreateYourAd from '@/views/CreateYourAd.vue'
+<<<<<<< HEAD
+import Dashboard from '@/views/dashboard/Dashboard.vue'
+import Case from '@/views/dashboard/Case.vue'
+=======
 import EditYourAd from '@/views/EditYourAd.vue'
 import Dashboard from '@/views/Dashboard.vue'
+>>>>>>> 58a010f5e1ad78022d01146202cfaf9aedafd45a
 import ForgetPassword from '@/views/ForgetPassword.vue'
 import UpdateProfile from '@/views/UpdateProfile.vue'
 import BlogInner from '@/views/BlogInner.vue'
@@ -30,12 +35,14 @@ const routes = [
   { path: '/create-your-ad', component: CreateYourAd, meta: { hideLayout: true } },
   { path: '/edit-your-ad/:id', component: EditYourAd, meta: { hideLayout: true } },
   { path: '/my-ads', component: MyAds },
-  { path: '/dashboard', component: Dashboard, meta: { hideLayout: true } },
   { path: '/reset-password', component: ForgetPassword, meta: { hideLayout: true } },
   { path: '/blog/:id', name: 'BlogInner', component: BlogInner },
   { path: '/map', name: 'Map', component: Map },
   { path: '/update-profile', component: UpdateProfile, meta: { hideLayout: true } },
 
+  //Dashboard routes
+  { path: '/dashboard', component: Dashboard, meta: { hideLayout: true } },
+  { path: '/case', component: Case, meta: { hideLayout: true } },
 ]
 
 const router = createRouter({

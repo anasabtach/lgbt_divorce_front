@@ -180,88 +180,7 @@ const applicationsChart = ref(null)
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3">
-        <div class="left-sidebar">
-          <div class="personal-info">
-            <i class="fa-solid fa-pen-to-square  edit"></i>
-            <img src="@/assets/images/avatar.png" class="avatar" alt="">
-              <h4 class="name">{{ user?.first_name }}</h4>
-            <h5 class="designation">Law Degree (LGBT)</h5>
-            <h6 class="case-add">Open to Case or Ad</h6>
-          </div>
-          <div class="connections">
-            <div class="r1">
-              <div class="icon-with-text">
-                <div class="icon-div">
-                  <i class="fa-solid fa-briefcase"></i>
-                </div>
-                <div>
-                  <h5>Work Experience</h5>
-                  <h3>10+ years</h3>
-                </div>
-              </div>
-              <div class="icon-with-text">
-                <div class="icon-div">
-                  <i class="fa-solid fa-share-nodes"></i>
-                </div>
-                <div>
-                  <h5>Connections</h5>
-                  <h3>1,500+</h3>
-                </div>
-              </div>
-            </div>
-            <div class="r2  ">
-              <div class="icon-with-text">
-                <div class="icon-div">
-                  <i class="fa-solid fa-chart-simple"></i>
-                </div>
-                <div>
-                  <h5>Work Level</h5>
-                  <h3>Expert</h3>
-                </div>
-              </div>
-              <div class="icon-with-text">
-                <div class="icon-div">
-                  <i class="fa-solid fa-users"></i>
-                </div>
-                <div>
-                  <h5>Followers</h5>
-                  <h3>2,300+</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="experience">
-            <h4>Experience</h4>
-            <div class="icon-with-text">
-              <div class="icon-div">
-                <i class="fa-solid fa-briefcase"></i>
-              </div>
-              <div>
-                <h3>LGBT Lawyer Specializing in Civil Rights</h3>
-                <h6>Tech Innovators Inc.(Jan 2018 - Present)</h6>
-                <p>Led dev team to design scalable software, improve performance, and mentor junior engineers.</p>
-              </div>
-            </div>
-            <div class="icon-with-text">
-              <div class="icon-div">
-                <i class="fa-solid fa-briefcase"></i>
-              </div>
-              <div>
-                <h3>LGBTQ+ Family Law Specialist</h3>
-                <h6>CodeCrafters Ltd. (Mar 2013 - Dec 2017)</h6>
-                <p>Developed and maintained web apps, collaborated to define requirements, and optimized existing
-                  codebases.</p>
-              </div>
-            </div>
-          </div>
-          <div class="enhanced">
-            <div class="box">
-              <h3>Enhanced Analytics Dashboard</h3>
-              <p>Get deeper insights with our revamped analytics tools.</p>
-              <a href="" class="btn2">Try for Free</a>
-            </div>
-          </div>
-        </div>
+        <DashboardLeft/>
       </div>
       <div class="col-md-6">
         <div class="row inner-row">
@@ -401,106 +320,13 @@ const applicationsChart = ref(null)
 </div>
       </div>
       <div class="col-md-3">
-  <div class="right-sidebar">
-    <div class="search-bar">
-     <form action="">
-  <input required type="text" placeholder="Search job, company, etc">
-  <button type="submit"><i class="fa-solid fa-filter"></i></button>
-</form>
-    </div>
-  
-    <!-- Card 1 -->
-    <div class="card">
-      <div class="card-header">
-        <div class="icon"></div>
-        <div>
-          <div class="title">Case 1</div>
-          <div class="location">Lorem Ipsum • Leipzig, GER</div>
-        </div>
-      </div>
-      <div class="tags">
-        <div class="tag">Full-Time</div>
-        <div class="tag">Hybrid</div>
-      </div>
-      <div class="description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      </div>
-      <div class="fees">
-          <div>
-              <h6>Consultation Fees</h6>
-              <h5>$150,000 - $180,000</h5>
-          </div>
-          <button class="consult-btn">Consult</button>
-      </div>
-      
-    </div>
-  
-    <!-- Card 2 -->
-    <div class="card">
-      <div class="card-header">
-        <div class="icon"></div>
-        <div>
-          <div class="title">Case 2</div>
-          <div class="location">Lorem Ipsum • Leipzig, GER</div>
-        </div>
-      </div>
-      <div class="tags">
-        <div class="tag">Full-Time</div>
-        <div class="tag">Hybrid</div>
-      </div>
-      <div class="description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      </div>
-      <div class="fees">
-          <div>
-              <h6>Consultation Fees</h6>
-              <h5>$150,000 - $180,000</h5>
-          </div>
-          <button class="consult-btn">Consult</button>
-      </div>
-    </div>
-  
-    <!-- Notifications -->
-    <div class="notification-section">
-      <h4>Notification</h4>
-  
-      <div class="section-label">Today</div>
-      <div class="notification">
-        <div class="icon"><i class="fa-solid fa-download"></i></div>
-        <div>
-          <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-          <div class="timestamp">10:15 AM</div>
-        </div>
-      </div>
-  
-      <div class="notification">
-        <div class="icon" style="background: #dff6e1;"><i class="fa-solid fa-user"></i></div>
-        <div>
-          <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-          <div class="timestamp">9:00 AM</div>
-        </div>
-      </div>
-  
-      <div class="section-label">Yesterday</div>
-      <div class="notification">
-        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
-        <div>
-          <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-          <div class="timestamp">4:30 AM</div>
-        </div>
-      </div>
-  
-      <div class="notification">
-        <div class="icon" style="background: #dff6e1;"><i class="fa-solid fa-envelope-open"></i></div>
-        <div>
-          <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-          <div class="timestamp">2:00 AM</div>
-        </div>
-      </div>
-    </div>
-  </div>
+      <DashboardRight/>
 </div>
     </div>
   </div>
 </section>
 </template>
+<script>
+  import DashboardLeft from '@/components/DashboardLeft.vue'
+  import DashboardRight from '@/components/DashboardRight.vue'
+</script>
