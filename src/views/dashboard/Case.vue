@@ -8,7 +8,7 @@
 
         <div class="col-md-6">
           <h4 class="hdbold mt-5 mb-3">Add New Case</h4>
-          <form @submit.prevent="submitForm">
+          <form @submit.prevent="submitForm" class="mb-5">
             <!-- Case Title -->
             <div class="form-floating mb-3">
               <input v-model="form.caseTitle" type="text" class="form-control" id="caseTitle" placeholder="Case Title" required />
@@ -132,6 +132,7 @@ import axios from 'axios'
 import DashboardLeft from '@/components/DashboardLeft.vue'
 import DashboardRight from '@/components/DashboardRight.vue'
 
+ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 // Reactive form state
 const form = reactive({
   caseTitle: '',
@@ -166,7 +167,7 @@ const submitForm = async () => {
   const hasEmpty = requiredFields.some(field => !field)
 
   if (hasEmpty) {
-    alert('Please fill out all required fields.')
+    alert('Please fill out all required fields.123')
     return
   }
 
@@ -187,14 +188,14 @@ const submitForm = async () => {
     case_date: form.filingDate,
     upcoming_hearing: form.hearingDate
   }
-
+  // console.log('Form payload:', payload);
   try {
-    const response = await axios.post('/api/cases', payload)
+    const response = await axios.post(`${API_BASE_URL}/case/store`, payload)
     alert('Case created successfully!')
     console.log(response.data)
   } catch (err) {
     const errorMsg = err.response?.data?.errors || err.message
-    alert('Failed to create case. Details: ' + JSON.stringify(errorMsg))
+    alert('Failed to create case123. Details: ' + JSON.stringify(errorMsg))
     console.error('Submission error:', err.response?.data || err)
   }
 }
