@@ -2,10 +2,35 @@
 <div class="left-sidebar">
           <div class="personal-info">
             <i class="fa-solid fa-pen-to-square  edit"></i>
-            <img src="@/assets/images/avatar.png" class="avatar" alt="">
-            <h4 class="name">Lawyer Name</h4>
-            <h5 class="designation">Law Degree (LGBT)</h5>
+            <img
+      :src="props.user?.image_url || require('@/assets/images/avatar.png')"
+      class="avatar"
+      alt=""
+    >
+            <h4 class="name">{{ (props.user?.first_name || '').trim() }} {{ (props.user?.last_name || '').trim() }}</h4>
+            <h5 class="designation">{{ (props.user?.law_firm_name || 'Law Degree (LGBT)').trim() }}</h5>
             <h6 class="case-add">Open to Case or Ad</h6>
+            <div v-if="props.user?.email" class="mt-2">
+      <i class="fa-solid fa-envelope"></i>
+      <span>{{ props.user.email }}</span>
+    </div>
+    <div v-if="props.user?.mobile_phone" class="mt-1">
+      <i class="fa-solid fa-phone"></i>
+      <span>{{ props.user.mobile_phone.trim() }}</span>
+    </div>
+    <div v-if="props.user?.website_url" class="mt-1">
+      <i class="fa-solid fa-globe"></i>
+      <a :href="props.user.website_url.trim()" target="_blank">{{ props.user.website_url.trim() }}</a>
+    </div>
+    <div v-if="props.user?.address" class="mt-1">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>
+        {{ props.user.address.trim() }},
+        {{ props.user.city_town?.trim() }},
+        {{ props.user.county?.trim() }},
+        {{ props.user.zip_code }}
+      </span>
+    </div>
           </div>
           <div class="connections">
             <div class="r1">
@@ -49,7 +74,7 @@
               </div>
             </div>
           </div>
-          <div class="experience">
+          <!-- <div class="experience">
             <h4>Experience</h4>
             <div class="icon-with-text">
               <div class="icon-div">
@@ -57,7 +82,7 @@
               </div>
               <div>
                 <h3>LGBT Lawyer Specializing in Civil Rights</h3>
-                <h6>Tech Innovators Inc.(Jan 2018 - Present)</h6>
+                <h6>{{ (props.user?.law_firm_name || 'Tech Innovators Inc.') }} (Jan 2018 - Present)</h6>
                 <p>Led dev team to design scalable software, improve performance, and mentor junior engineers.</p>
               </div>
             </div>
@@ -72,7 +97,7 @@
                   codebases.</p>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="enhanced">
             <div class="box">
               <h3>Enhanced Analytics Dashboard</h3>
@@ -81,4 +106,13 @@
             </div>
           </div>
         </div>
-        </template>
+</template>
+
+<script setup>
+const props = defineProps({
+  user: {
+    type: Object,
+    default: null
+  }
+})
+</script>
