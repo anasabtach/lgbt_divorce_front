@@ -9,9 +9,14 @@ import Login from '@/views/Login.vue'
 import ContactUs from '@/views/ContactUs.vue'
 import Payment from '@/views/Payment.vue'
 import CreateYourAd from '@/views/CreateYourAd.vue'
+<<<<<<< HEAD
 import Dashboard from '@/views/dashboard/Dashboard.vue'
 import Case from '@/views/dashboard/Case.vue'
 import EditYourAd from '@/views/EditYourAd.vue'
+=======
+import EditYourAd from '@/views/EditYourAd.vue'
+import Dashboard from '@/views/Dashboard.vue'
+>>>>>>> 211db0c9dafc724456420a65107a9df81cdf4e18
 import ForgetPassword from '@/views/ForgetPassword.vue'
 import UpdateProfile from '@/views/UpdateProfile.vue'
 import BlogInner from '@/views/BlogInner.vue'
@@ -38,7 +43,7 @@ const routes = [
 
   //Dashboard routes
   { path: '/dashboard', component: Dashboard, meta: { hideLayout: true } },
-  { path: '/case', component: Case, meta: { hideLayout: true } },
+  // { path: '/case', component: Case, meta: { hideLayout: true } },
 ]
 
 const router = createRouter({
