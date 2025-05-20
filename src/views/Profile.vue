@@ -104,9 +104,13 @@ onMounted(async () => {
                                     <p>{{ lawyer.content }}</p>
                                 </div>
                                 <router-link :to="`/edit-your-ad/${lawyer.id}`" class="dropdown-item">Edit</router-link>
-                                <!-- <router-link :to="`/profile/${lawyer.id}`" class="btn1">
-                                    <span>View profile</span>
-                                </router-link> -->
+                                <button
+                                    v-if="lawyer.status === 'pending'"
+                                    class="btn btn-warning mt-2"
+                                    @click="$router.push(`/ad/${lawyer.id}/pay`)"
+                                >
+                                    Pay
+                                </button>
                             </div>
                         </div>
                         <!-- Only arrows -->

@@ -175,6 +175,8 @@ export default {
         const response = await axios.post(`${baseURL}/ad/store`, formData, { headers });
         if (response.status === 200) {
           Swal.fire('Success', 'Ad submitted successfully!', 'success');
+          const adId = response.data.advertisement.id;
+          this.$router.push(`/ad/${adId}/pay`);
         }
       } catch (error) {
         console.log(this.formData);

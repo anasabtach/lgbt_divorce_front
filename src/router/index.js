@@ -35,6 +35,7 @@ const routes = [
   { path: '/blog/:id', name: 'BlogInner', component: BlogInner },
   { path: '/map', name: 'Map', component: Map },
   { path: '/update-profile', component: UpdateProfile, meta: { hideLayout: true } },
+  { path: '/ad/:id/pay', component: Payment, meta: { hideLayout: true } }, // New route for payment with ad ID
 
   //Dashboard routes
   { path: '/dashboard', component: Dashboard, meta: { hideLayout: true } },
