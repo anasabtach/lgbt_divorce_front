@@ -3,7 +3,7 @@
           <div class="personal-info">
             <i class="fa-solid fa-pen-to-square  edit"></i>
             <img
-      :src="props.user?.image_url || require('@/assets/images/avatar.png')"
+      :src="props.user?.image_url || avatarUrl"
       class="avatar"
       alt=""
     >
@@ -109,10 +109,12 @@
 </template>
 
 <script setup>
+import avatarImg from '@/assets/images/avatar.png'
 const props = defineProps({
   user: {
     type: Object,
     default: null
   }
 })
+const avatarUrl = avatarImg
 </script>

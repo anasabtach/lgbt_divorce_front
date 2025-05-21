@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3">
-          <DashboardLeft />
+          <DashboardLeft :dashboard-data="dashboardData" :user="user" />
         </div>
 
         <div class="col-md-6">
@@ -119,7 +119,7 @@
         </div>
 
         <div class="col-md-3">
-          <DashboardRight />
+          <DashboardRight :dashboard-data="dashboardData" :lawyer-name="user?.first_name || 'Lawyer'" />
         </div>
       </div>
     </div>
@@ -127,12 +127,33 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import axios from 'axios'
 import DashboardLeft from '@/components/DashboardLeft.vue'
 import DashboardRight from '@/components/DashboardRight.vue'
 
- const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+const user = ref(null)
+const dashboardData = ref(null)
+
+// Fetch user and dashboard data (same as dashboard.vue)
+onMounted(async () => {
+  try {
+    const token = localStorage.getItem('token');
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+    const res = await axios.get(`${API_BASE_URL}/dashboard`, { headers }); // <-- Adjust API endpoint as needed
+    dashboardData.value = res.data.data;
+    user.value = res.data.data.user; // get user from dashboard data
+    // console.log(dashboardData.value.cases[0].id);
+  } catch (e) {
+    dashboardData.value = null;
+    user.value = null;
+    console.error('Failed to fetch dashboard data', e);
+  }
+})
+
 // Reactive form state
 const form = reactive({
   caseTitle: '',
@@ -188,7 +209,6 @@ const submitForm = async () => {
     case_date: form.filingDate,
     upcoming_hearing: form.hearingDate
   }
-  // console.log('Form payload:', payload);
   try {
     const response = await axios.post(`${API_BASE_URL}/case/store`, payload)
     alert('Case created successfully!')
