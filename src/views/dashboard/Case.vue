@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3">
-          <DashboardLeft :dashboard-data="dashboardData" :user="user" />
+        <DashboardLeft :dashboard-data="dashboardData" :user="user" />
         </div>
 
         <div class="col-md-6">
@@ -143,14 +143,23 @@ onMounted(async () => {
     const headers = {
       Authorization: `Bearer ${token}`
     };
-    const res = await axios.get(`${API_BASE_URL}/dashboard`, { headers }); // <-- Adjust API endpoint as needed
+    const res = await axios.get(`${API_BASE_URL}/dashboard`, { headers });
     dashboardData.value = res.data.data;
-    user.value = res.data.data.user; // get user from dashboard data
-    // console.log(dashboardData.value.cases[0].id);
   } catch (e) {
     dashboardData.value = null;
-    user.value = null;
     console.error('Failed to fetch dashboard data', e);
+  }
+
+    const storedUserRaw = localStorage.getItem('user')
+  let storedUser = null
+  if (storedUserRaw) {
+    try {
+      storedUser = JSON.parse(storedUserRaw)
+      user.value = storedUser
+    } catch {
+      storedUser = null
+      user.value = null
+    }
   }
 })
 

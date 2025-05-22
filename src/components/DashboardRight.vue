@@ -1,9 +1,12 @@
 <template>
 <div class="right-sidebar">
     <div class="search-bar">
-     <form action="">
-  <input required type="text" placeholder="Search job, company, etc">
-  <button type="submit"><i class="fa-solid fa-filter"></i></button>
+     <form action="" @submit.prevent>
+  <!-- <input required type="text" placeholder="Search job, company, etc"> -->
+  <button type="button"  @click="$router.push('/case')" title="Create Case"><i class="fa-solid fa-suitcase"></i></button>
+  <button type="button" @click="$router.push('/profile')" title="My Account"><i class="fa-solid fa-user"></i></button>
+  <button type="button" @click="$router.push('/update-profile')" title="Edit Profile"><i class="fa-solid fa-users"></i></button>
+  <button type="button" @click="$router.push('/create-your-ad')" title="Create Ad"><i class="fa-solid  fa-square-plus"></i></button>
 </form>
     </div>
   
@@ -15,9 +18,9 @@
         :key="caseItem.id || idx"
       >
         <div class="card-header">
-          <div class="icon"></div>
+          <div class="icon fa-solid fa-suitcase"></div>
           <div>
-            <div class="title">{{ caseItem.title || `Case ${idx + 1}` }}</div>
+            <div class="title">{{ caseItem.title || `Case ` }}</div>
             <div class="location">{{ caseItem.location }}</div>
           </div>
         </div>
@@ -35,6 +38,61 @@
             <button class="consult-btn">Consult</button>
         </div>
       </div>
+<div class="upcoming-hearings"><div class="hearings" style="width: 100%;">
+  <h3>Upcoming Hearings</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Client</th>
+        <th>Case Type</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>John Doe</td><td>Property Dispute</td><td>6/1/2025</td></tr><tr><td>John Doe</td><td>Propertqy Dispute</td><td>6/1/2025</td></tr></tbody></table></div>
+      
+      
+      
+      
+      
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="hearings">
+    <h3>Upcoming Hearings</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Case Type</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template v-if="dashboardData && dashboardData.upcomingHearings && dashboardData.upcomingHearings.length">
+          <tr v-for="hearing in dashboardData.upcomingHearings" :key="hearing.id">
+            <td>{{ hearing.client_name }}</td>
+            <td>{{ hearing.case_type }}</td>
+            <td>{{ hearing.upcoming_hearing ? (new Date(hearing.upcoming_hearing)).toLocaleDateString() : '' }}</td>
+          </tr>
+        </template>
+        <template v-else>
+          <tr>
+            <td colspan="3">No upcoming hearings</td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div> -->
     </template>
     <!-- Fallback if no cases -->
     <template v-else>
@@ -99,3 +157,18 @@ defineProps({
   }
 })
 </script>
+<style scoped>
+.right-sidebar .card-header .icon {
+    width: 40px;
+    height: 40px;
+    background: #ff0000 !important;
+    border-radius: 10px;
+    margin-right: 10px;
+    color: white;
+    padding: 12px;
+}
+.right-sidebar .search-bar form {
+    display: flex;
+    justify-content: flex-end !important;
+}
+</style>

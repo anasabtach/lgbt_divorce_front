@@ -80,7 +80,6 @@ onMounted(async () => {
   if (storedUserRaw) {
     try {
       storedUser = JSON.parse(storedUserRaw)
-      console.log(storedUser);
       user.value = storedUser
     } catch {
       storedUser = null
@@ -307,7 +306,13 @@ onMounted(async () => {
   </div>
   <canvas ref="profileViewsChart" width="400" height="200"></canvas>
 </div>
-        <div class="upcoming-hearings">
+
+
+
+
+
+
+        <!-- <div class="upcoming-hearings">
   <div class="hearings">
     <h3>Upcoming Hearings</h3>
     <table>
@@ -342,7 +347,6 @@ onMounted(async () => {
         <button @click="nextMonth">Next</button>
     </div>
     <div class="calendar-grid" id="calendar-grid">
-      <!-- Weekdays -->
       <div class="weekday">SUN</div>
       <div class="weekday">MON</div>
       <div class="weekday">TUE</div>
@@ -352,7 +356,7 @@ onMounted(async () => {
       <div class="weekday">SAT</div>
     </div>
   </div>
-</div>
+</div> -->
       </div>
       <div class="col-md-3">
         <DashboardRight :dashboard-data="dashboardData" :lawyer-name="user?.first_name || 'Lawyer'" />
