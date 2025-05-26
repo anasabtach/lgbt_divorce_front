@@ -32,19 +32,8 @@ import LawyersSlider from '../components/LawyersSlider.vue'
                 <div class="col text-center">
                     <h4>Lawyers Expertise</h4>
                     <h2>LGBTQ+ Divorce</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type specimen book. It has survived not only
-                        five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages, and more recently with desktop publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
+                    <p>
+                        Lawyers specializing in LGBT divorce possess a deep understanding of the unique legal and personal issues that can arise in same-sex separations. Their expertise includes navigating complex matters such as property division in non-traditional relationships, custody and parental rights for non-biological parents, and the varying recognition of same-sex marriages across different states or countries. These legal professionals are also sensitive to the emotional and social aspects of LGBT divorce, offering respectful and inclusive representation. With a strong grasp of evolving laws and a commitment to equality, LGBT divorce lawyers ensure that their clients receive fair treatment and clear guidance throughout the legal process.
 
                     </p>
                 </div>

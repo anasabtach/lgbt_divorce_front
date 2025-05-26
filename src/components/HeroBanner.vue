@@ -22,7 +22,7 @@
                     <h1>
                       FIND <span class="highlight">LGBT</span> Lawyers, Proven Results
                     </h1>
-                    <div class="review d-flex align-items-center mt-3">
+                    <!-- <div class="review d-flex align-items-center mt-3">
                       <div class="clients-images me-3">
                         <img src="@/assets/images/clients.png" alt="Clients" class="img-fluid" />
                       </div>
@@ -30,7 +30,7 @@
                         <p class="mb-1">We Have 30k+ Happy Clients</p>
                         <div class="stars">⭐⭐⭐⭐⭐ 4.5/5(35k+ Reviews)</div>
                       </div>
-                    </div>
+                    </div> -->
                     <form @submit.prevent="handleSubmit" class="search-bar mt-4 d-flex">
                         <input 
                         type="text" 

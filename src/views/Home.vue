@@ -6,7 +6,7 @@
 
     <About/>
 
-    <Counter/>
+    <!-- <Counter/> -->
 
     <LawyersSlider/>
 

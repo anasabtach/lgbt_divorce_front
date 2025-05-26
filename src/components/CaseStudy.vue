@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <h4>Case Study</h4>
-                <h2>Attoenwy Legal Excellence in Action</h2>
+                <h2>Attorney Legal Excellence in Action</h2>
             </div>
             <!-- Gallery -->
             <div class="row r1">
