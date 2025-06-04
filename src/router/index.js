@@ -17,6 +17,8 @@ import BlogInner from '@/views/BlogInner.vue'
 import Map from '../components/Map.vue'
 import MyAds from '@/views/MyAds.vue'
 import Case from '@/views/dashboard/Case.vue' // Adjusted import for Case.vue
+import UpdateInfo from '@/views/UpdateInfo.vue'
+import ResetPassword from '../views/ResetPassword.vue'
 
 const routes = [
   { path: '/', component: Home },  // Use 'component' instead of 'view'
@@ -29,9 +31,11 @@ const routes = [
   { path: '/contact-us', component: ContactUs, meta: { hideLayout: true } },
   { path: '/payment', component: Payment, meta: { hideLayout: true } },
   { path: '/create-your-ad', component: CreateYourAd, meta: { hideLayout: true } },
+  { path: '/update-info', component: UpdateInfo, meta: { hideLayout: true } },
   { path: '/edit-your-ad/:id', component: EditYourAd, meta: { hideLayout: true } },
   { path: '/my-ads', component: MyAds },
-  { path: '/reset-password', component: ForgetPassword, meta: { hideLayout: true } },
+  { path: '/forget-password', component: ForgetPassword, meta: { hideLayout: true } },
+  { path: '/reset-password', component: ResetPassword, meta: { hideLayout: true } },
   { path: '/blog/:id', name: 'BlogInner', component: BlogInner },
   { path: '/map', name: 'Map', component: Map },
   { path: '/update-profile', component: UpdateProfile, meta: { hideLayout: true } },

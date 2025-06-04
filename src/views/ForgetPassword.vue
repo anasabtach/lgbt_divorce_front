@@ -1,19 +1,29 @@
 <script setup>
 import { reactive } from 'vue'
+import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const form = reactive({
   email: ''
 })
 
-const submitForgotPassword = () => {
+const baseURL = import.meta.env.VITE_API_BASE_URL
+
+const submitForgotPassword = async () => {
   if (!form.email) {
-    alert('Please enter your email.')
+    Swal.fire('Error', 'Please enter your email.', 'error')
     return
   }
-
-  // Replace with your real API call
-  console.log('Password reset request sent for:', form.email)
-  alert('Password reset link sent to your email.')
+  try {
+    const res = await axios.post(`${baseURL}/user/forget-password`, { email: form.email })
+    if (res.data && res.data.success) {
+      Swal.fire('Success', 'Password reset link sent to your email.', 'success')
+    } else {
+      Swal.fire('Error', res.data.message || 'Failed to send reset link.', 'error')
+    }
+  } catch (error) {
+    Swal.fire('Error', error.response?.data?.message || 'Something went wrong.', 'error')
+  }
 }
 </script>
 

@@ -33,9 +33,9 @@ onMounted(async () => {
                         <div class="col-lg-6">
                             <h2 class="user-name">{{ user?.first_name || 'User Name' }}</h2>
                             <ul class="info-list">
-                                <li><span><img src="@/assets/images/info-1.png" alt="" /></span> {{ user?.experience || '10' }} years of experience</li>
-                                <li><span><img src="@/assets/images/info-2.png" alt="" /></span> {{ user?.specialization || 'Specialization' }}</li>
-                                <li><span><img src="@/assets/images/info-3.png" alt="" /></span> {{ user?.city_town || 'Location' }}</li>
+                                <li><span><img src="@/assets/images/info-1.png" alt="" /></span> {{ userInfo?.experience || '100' }} years of experience</li>
+                                <li><span><img src="@/assets/images/info-2.png" alt="" /></span> {{ userInfo?.specialization || 'Specialization' }}</li>
+                                <!-- <li><span><img src="@/assets/images/info-3.png" alt="" /></span> {{ user?.city_town || 'Location' }}</li> -->
                             </ul>
                             <button class="profile-btn">Review This Lawyer</button>
                         </div>
@@ -57,16 +57,12 @@ onMounted(async () => {
                             </div>
 
                             <div class="mb-2">
-                                <h5>Divorce</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                                                    <div v-if="userInfo.practice_area" v-html="userInfo.practice_area"></div>
+                            <div v-else>
+                              <h6>N/A</h6>
+                            </div>
                             </div>
 
-                            <div class="mb-2">
-                                <h5>LGBT Divorce</h5>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry...
-                                </p>
-                            </div>
 
                             <div class="badges d-flex align-items-center gap-3 mb-3">
                                 <img src="@/assets/images/badges.png" alt="" />
@@ -130,26 +126,11 @@ onMounted(async () => {
                         <img src="@/assets/images/badges.png" alt="" />
                         <h2 class="m-0">Biography</h2>
                     </div>
-
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum but also the leap into electronic typesetting, remaining essentially unchanged. It
-                        was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                        passages, and more recently with desktop publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
-
-                    </p>
-                    <p>but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.
-
-                    </p>
-                    <a href="#">View More ›</a>
+                    <div v-if="userInfo.biography" v-html="userInfo.biography"></div>
+                    <div v-else>
+                      <p>No biography available.</p>
+                    </div>
+                    <!-- <a href="#">View More ›</a> -->
                 </div>
             </div>
         </div>
@@ -157,7 +138,7 @@ onMounted(async () => {
 
     <section class="profile-section-3">
         <div class="container">
-            <div class="row row-1">
+            <!-- <div class="row row-1">
                 <div class="col">
                     <div>
                         <div class="d-flex align-items-center gap-3 mb-2 text-icon">
@@ -167,7 +148,7 @@ onMounted(async () => {
                         <p>Credit Cards Accepted</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="row row-2">
                 <div class="col">
@@ -177,9 +158,10 @@ onMounted(async () => {
                                 <img src="@/assets/images/home.png" alt="" />
                                 <h2>Jurisdictions Admitted to Practice</h2>
                             </div>
-                            <h6>Texas</h6>
-                            <p>State Bar of Texas</p>
-                            <p>Since 2010</p>
+                            <div v-if="userInfo.jurisdictions_admitted" v-html="userInfo.jurisdictions_admitted"></div>
+                            <div v-else>
+                              <h6>N/A</h6>
+                            </div>
                         </div>
                         <img src="@/assets/images/Group 1321315087.png" alt="" class="building-img" />
                     </div>
@@ -193,39 +175,69 @@ onMounted(async () => {
                             <img src="@/assets/images/bag.png" alt="" />
                             <h2>Professional Experience</h2>
                         </div>
-
-                        <div>
-                            <h6>Attorney</h6>
-                            <p>Diggs & Sadler</p>
-                            <p class="para-light">2010 - Current</p>
-                        </div>
-
-                        <div class="mt-3">
-                            <h6>Law Clerk</h6>
-                            <p>Holmes, Diggs, Eames & Puhl, PLLC</p>
-                            <p class="para-light">2008 - 2010</p>
+                        <div v-if="userInfo.professional_experience" v-html="userInfo.professional_experience"></div>
+                        <div v-else>
+                          <p>No professional experience available.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- ...existing code... -->
 </template>
 
 <script>
 import { initSliders } from '../assets/js/custom.js';
+import axios from 'axios';
+
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 export default {
   data() {
     return {
-      user: null
+      user: null,
+      userInfo: {
+        experience: '',
+        specialization: '',
+        practice_area: '',
+        biography: '',
+        jurisdictions_admitted: '',
+        professional_experience: '',
+      }
     };
   },
-  mounted() {
-            initSliders();        
+  async mounted() {
+    initSliders();
+    // Fetch user basic info from localStorage (for name, etc.)
     const userData = localStorage.getItem('user');
     if (userData) {
       this.user = JSON.parse(userData);
+    }
+    // Fetch extended info from API
+    try {
+      const token = localStorage.getItem('token');
+      const headers = { Authorization: `Bearer ${token}` };
+      const response = await axios.get(`${baseURL}/user/get-info`, { headers });
+      if (
+        response.data &&
+        response.data.success &&
+        response.data.user &&
+        response.data.user.user_info
+      ) {
+        const info = response.data.user.user_info;
+        this.userInfo = {
+          experience: info.experience != null ? String(info.experience) : '',
+          specialization: info.specialization != null ? String(info.specialization) : '',
+          practice_area: info.practice_area != null ? String(info.practice_area) : '',
+          biography: info.biography != null ? String(info.biography) : '',
+          jurisdictions_admitted: info.jurisdictions_admitted != null ? String(info.jurisdictions_admitted) : '',
+          professional_experience: info.professional_experience != null ? String(info.professional_experience) : '',
+        };
+      }
+    } catch (error) {
+      // Optionally handle error
+      console.error('Error fetching user info:', error);
     }
   }
 };

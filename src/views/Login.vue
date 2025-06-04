@@ -73,7 +73,7 @@ const submitLogin = async () => {
                   <input v-model="form.remember" class="form-check-input" type="checkbox" id="rememberMe" />
                   <label class="form-check-label" for="rememberMe">Remember me</label>
                 </div>
-                <router-link to="/reset-password" class="forgot-link">Forgot Password?</router-link>
+                <router-link to="/forget-password" class="forgot-link">Forgot Password?</router-link>
               </div>
 
               <button type="submit" class="btn btn-danger w-100 mb-3 py-2">Sign In</button>

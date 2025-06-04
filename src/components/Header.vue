@@ -31,6 +31,9 @@ const logout = async () => {
       router.push('/login')
     })
   } catch (error) {
+        localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    user.value = null
     Swal.fire('Error', error.response?.data?.message || 'Something went wrong.', 'error')
   }
 }
@@ -110,9 +113,9 @@ const logout = async () => {
       </li>
       <li>
       <router-link class="dropdown-item" to="/profile">My Account</router-link>
-        <router-link class="dropdown-item" to="/update-profile">Edit Profile</router-link>
-        
+        <router-link class="dropdown-item" to="/update-profile">Edit Profile</router-link> 
         <router-link class="dropdown-item" to="/create-your-ad">Create Ad</router-link>
+        <router-link class="dropdown-item" to="/update-info">Info</router-link>
       </li>
       <li>
         <button class="dropdown-item" @click="logout">Logout</button>
