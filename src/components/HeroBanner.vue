@@ -45,7 +45,7 @@
                         type="text" 
                         class="form-control me-2 bordered" 
                         v-model="country" 
-                        placeholder="Country" 
+                        placeholder="County" 
                         aria-label="Country"                        
                         required 
                     />

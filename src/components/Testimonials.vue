@@ -17,8 +17,7 @@
                                         <div class="stars">★★★★★</div>
                                     </div>
                                 </div>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+                                <p>Divorce is hard no matter who you are, but being part of the LGBTQ+ community adds layers most people don’t understand. This platform gave me the tools, support, and sense of belonging I needed to start over with hope</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -32,8 +31,7 @@
                                         <div class="stars">★★★★☆</div>
                                     </div>
                                 </div>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+                                <p>After my marriage ended, I felt lost. But here, I found community, comfort, and practical help. It’s more than just a website—it’s a safe place to rebuild and rediscover who I am.</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -47,8 +45,7 @@
                                         <div class="stars">★★★★★</div>
                                     </div>
                                 </div>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s...</p>
+                                <p>Ending a relationship is never easy, but having a space that understands the unique struggles of LGBTQ+ couples made all the difference. This site reminded me that healing is possible—and I’m not alone.</p>
                             </div>
                         </div>
                     </div>

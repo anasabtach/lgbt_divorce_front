@@ -115,12 +115,22 @@ export default {
 
         if (res.data.success && res.data.user.user_info) {
           Object.assign(this.formData, res.data.user.user_info);
-          this.editorReady = false;
-          this.editorKey++; // Force re-render with new key
-          this.$nextTick(() => {
-            this.editorReady = true;
-          });
+        } else {
+          // If user_info is missing, ensure all fields are empty strings
+          this.formData = {
+            experience: '',
+            specialization: '',
+            practice_area: '',
+            biography: '',
+            jurisdictions_admitted: '',
+            professional_experience: '',
+          };
         }
+        this.editorReady = false;
+        this.editorKey++; // Force re-render with new key
+        this.$nextTick(() => {
+          this.editorReady = true;
+        });
       } catch (error) {
         console.error('Error fetching user info:', error);
         Swal.fire('Error', 'Failed to load user info', 'error');
